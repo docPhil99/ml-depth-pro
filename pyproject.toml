@@ -4,13 +4,17 @@ version = "0.1"
 description = "Inference/Network/Model code for Apple Depth Pro monocular depth estimation."
 readme = "README.md"
 dependencies = [
-    "torch",
+    "torch==2.9.1",
     "torchvision",
     "timm",
     "numpy<2",
     "pillow_heif",
     "matplotlib",
 ]
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
 
 [project.scripts]
 depth-pro-run = "depth_pro.cli:run_main"
