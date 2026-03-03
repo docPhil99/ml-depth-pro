@@ -2,7 +2,7 @@ from PIL import Image
 import depth_pro
 import numpy as np
 import matplotlib.pyplot as plt
-image_path = "/home/phil/datasets/MOT/MOT17/train/MOT17-02-DPM/img1/000001.jpg"
+image_path = "/home/phil/datasets/MOT/MOT17/train/MOT17-04-DPM/img1/000001.jpg"
 # Load model and preprocessing transform
 model, transform = depth_pro.create_model_and_transforms()
 model.eval()
@@ -18,7 +18,7 @@ focallength_px = prediction["focallength_px"]  # Focal length in pixels.
 print(f'Predicted focal length: {focallength_px}')
 plt.figure()
 depth = depth_t.cpu().numpy()
-np.clip(depth, 0, 10, out=depth)
+#np.clip(depth, 0, 10, out=depth)
 #depth.Tensor.ndim = property(lambda self: len(self.shape))
 plt.imshow(depth)
 
