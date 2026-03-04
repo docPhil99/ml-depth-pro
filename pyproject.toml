@@ -10,6 +10,7 @@ dependencies = [
     "numpy<2",
     "pillow_heif",
     "matplotlib",
+    "loguru>=0.7.3",
 ]
 [[tool.uv.index]]
 name = "pytorch-cu126"
