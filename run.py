@@ -10,9 +10,20 @@ import torch
 class Depth:
     def __init__(self):
         # Load model and preprocessing transform
-        self.model, self.transform = depth_pro.create_model_and_transforms()
+        self.model, self.transform = depth_pro.create_model_and_transforms(
+            device=self._get_device(),precision=torch.half)
         self.model.eval()
         logger.info('Loaded model')
+
+    def _get_device(self):
+        """Get the Torch device."""
+        device = torch.device("cpu")
+        if torch.cuda.is_available():
+            device = torch.device("cuda:0")
+        elif torch.backends.mps.is_available():
+            device = torch.device("mps")
+        logger.info(f'Using device: {device}')
+        return device
 
     def infer(self, image_path: Path):
         # Load and preprocess an image.
