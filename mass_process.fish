@@ -9,7 +9,7 @@ for f in $root_path*
 	set full_out_path $out_path$base_name
 	echo $full_out_path
 	mkdir -p $full_out_path
-	uv run run.py --input_video $f --output_dir  $full_out_path --encoder vitl --save_npz
+	uv run run.py --directory $f --output_dir  $full_out_path
 
 end
 
