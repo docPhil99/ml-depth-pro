@@ -9,7 +9,9 @@ for f in $root_path*
 	set full_out_path $out_path$base_name
 	echo $full_out_path
 	mkdir -p $full_out_path
-	uv run run.py --directory $f --output_dir  $full_out_path
+	set dir_name $f"/img1"
+	echo $dir_name
+	uv run run.py --directory $dir_name --output_dir  $full_out_path
 
 end
 
